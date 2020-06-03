@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/modules/Module.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/modules/IO/PulseButton.gd" type="Script" id=2]
+
+[node name="PulseButton" instance=ExtResource( 1 )]
+title = "Pulse Button"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="." index="0"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 196.0
+margin_bottom = 44.0
+text = "Pulse"
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
