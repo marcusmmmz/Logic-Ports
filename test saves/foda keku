@@ -1,0 +1,4 @@
+{"class":"GraphEdit","connection_list":[{"from":"NOT","from_port":0,"to":"LightBulb","to_port":0},{"from":"ToggleButton","from_port":0,"to":"NOT","to_port":0}],"filename":"","name":"GraphEdit","parent":"/root/Game","scroll_offset":"Vector2( -411.32, -280.26 )","zoom":1}
+{"filename":"res://src/modules/IO/LightBulb.tscn","name":"LightBulb","offset":"Vector2( 312, 0 )","parent":"/root/Game/GraphEdit","title":"Light Bulb"}
+{"filename":"res://src/modules/IO/ToggleButton.tscn","name":"ToggleButton","offset":"Vector2( -286, 0 )","parent":"/root/Game/GraphEdit","title":"Toggle Button"}
+{"filename":"res://src/modules/Logic/NotModule.tscn","name":"NOT","offset":"Vector2( 26, 0 )","parent":"/root/Game/GraphEdit","title":"NOT Gate"}

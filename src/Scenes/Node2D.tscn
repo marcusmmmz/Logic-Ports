@@ -1,0 +1,231 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/scripts/AddModuleButton.gd" type="Script" id=1]
+[ext_resource path="res://src/Scenes/Node2D.gd" type="Script" id=2]
+[ext_resource path="res://src/Scenes/GraphEdit.gd" type="Script" id=3]
+
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.067
+margin_bottom = -0.240002
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphEdit" type="GraphEdit" parent="." groups=[
+"Persist",
+]]
+anchor_top = 0.067
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.240002
+focus_mode = 0
+right_disconnects = true
+scroll_offset = Vector2( 0, -0.240002 )
+snap_distance = 26
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddButton" type="Button" parent="."]
+anchor_left = 0.906
+anchor_right = 0.987
+anchor_bottom = 0.056
+margin_left = 0.319946
+margin_right = 0.639893
+margin_bottom = -0.32
+text = "Add"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="."]
+anchor_left = 0.012
+anchor_right = 0.094
+anchor_bottom = 0.056
+margin_left = 0.639999
+margin_right = -0.320007
+margin_bottom = -0.32
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="."]
+anchor_left = 0.106
+anchor_right = 0.187
+anchor_bottom = 0.056
+margin_left = 0.319992
+margin_right = 0.639984
+margin_bottom = -0.32
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddPopup" type="Popup" parent="."]
+anchor_left = 0.35
+anchor_top = 0.139
+anchor_right = 0.65
+anchor_bottom = 0.85
+margin_left = -3.05176e-05
+margin_top = -0.0800095
+margin_right = -6.10352e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="AddPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="AddPopup"]
+anchor_right = 1.0
+anchor_bottom = 0.07
+margin_bottom = 0.16
+text = "Add"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AddPopup"]
+anchor_left = 0.166333
+anchor_top = 0.086
+anchor_right = 0.833667
+anchor_bottom = 0.961
+margin_left = 0.127998
+margin_top = -0.0320015
+margin_right = -0.128021
+margin_bottom = -0.0320129
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddPopup/ScrollContainer"]
+margin_right = 204.749
+margin_bottom = 373.345
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+
+[node name="Logic" type="Label" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 42.0
+size_flags_vertical = 3
+text = "Logic"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AND" type="Button" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 256.0
+margin_bottom = 100.0
+size_flags_vertical = 3
+text = "AND Gate"
+script = ExtResource( 1 )
+
+[node name="OR" type="Button" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_top = 116.0
+margin_right = 256.0
+margin_bottom = 158.0
+size_flags_vertical = 3
+text = "OR Gate"
+script = ExtResource( 1 )
+
+[node name="NOT" type="Button" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_top = 174.0
+margin_right = 256.0
+margin_bottom = 216.0
+size_flags_vertical = 3
+text = "NOT Gate"
+script = ExtResource( 1 )
+
+[node name="IO" type="Label" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_top = 232.0
+margin_right = 256.0
+margin_bottom = 274.0
+size_flags_vertical = 3
+text = "IO"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PULSE" type="Button" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_top = 290.0
+margin_right = 256.0
+margin_bottom = 332.0
+size_flags_vertical = 3
+text = "Pulse Button"
+script = ExtResource( 1 )
+
+[node name="TOGGLE" type="Button" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_top = 348.0
+margin_right = 256.0
+margin_bottom = 390.0
+size_flags_vertical = 3
+text = "Toggle Button"
+script = ExtResource( 1 )
+
+[node name="LIGHT" type="Button" parent="AddPopup/ScrollContainer/VBoxContainer"]
+margin_top = 406.0
+margin_right = 256.0
+margin_bottom = 448.0
+size_flags_vertical = 3
+text = "Light Bulb"
+script = ExtResource( 1 )
+
+[node name="FilePopup" type="FileDialog" parent="."]
+anchor_left = 0.35
+anchor_top = 0.278
+anchor_right = 0.65
+anchor_bottom = 0.767
+margin_left = -3.05176e-05
+margin_top = -8.16002
+margin_right = -6.10352e-05
+margin_bottom = -0.23999
+dialog_hide_on_ok = true
+access = 2
+current_dir = "C:/Users/Marcus/OneDrive/Godot/Logic Ports"
+current_path = "C:/Users/Marcus/OneDrive/Godot/Logic Ports/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.35
+anchor_right = 0.65
+anchor_bottom = 0.044
+margin_left = -3.05176e-05
+margin_right = -6.10352e-05
+margin_bottom = 0.319998
+text = "Debug"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="connection_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_connection_request"]
+[connection signal="disconnection_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_disconnection_request"]
+[connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
+[connection signal="confirmed" from="FilePopup" to="." method="_on_FilePopup_confirmed"]
+[connection signal="ready" from="FilePopup" to="." method="_on_FilePopup_ready"]

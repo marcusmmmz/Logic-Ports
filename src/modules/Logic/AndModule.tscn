@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/modules/Module.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/modules/Logic/AndModule.gd" type="Script" id=2]
+
+[node name="AndModule" instance=ExtResource( 1 )]
+margin_bottom = 159.0
+title = " And Gate"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 0, 0, 0, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 0, 0, 0, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 0, 0, 0, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="." index="0"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 196.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="Panel2" type="Panel" parent="." index="1"]
+margin_left = 16.0
+margin_top = 89.0
+margin_right = 196.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 0, 64 )
