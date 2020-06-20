@@ -3,9 +3,7 @@ extends Button
 var Graph
 
 func get_graph():
-	var node = get_parent()
-	while not node is Node2D:
-		node = node.get_parent()
+	var node = get_tree().current_scene
 	
 	for child in node.get_children():
 		if child is GraphEdit:

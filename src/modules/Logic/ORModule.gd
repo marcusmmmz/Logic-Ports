@@ -1,17 +1,17 @@
 extends Module
 
-var inputs = [false, false]
-
-func input_changed(port, new_value):
-	if inputs[port] != new_value:
-		inputs[port] = new_value
-		process()
+func _ready():
+	inputs = [false, false]
+	outputs = [false]
 
 func process():
-	var output = false
+	var new_output = false
 	for input in inputs:
 		if input == true:
-			output = true
+			new_output = true
 			break
 	
-	emit_signal("change_output", 0, output)
+	if new_output != outputs[0]:
+		outputs[0] = new_output
+		
+		update_outputs()

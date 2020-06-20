@@ -1,20 +1,13 @@
 extends Module
 
-var times_executed = 9
-var inputs = [true]
-
-func input_changed(port, new_value):
-	if inputs[port] != new_value:
-		inputs[port] = new_value
-		process()
+func _ready():
+	inputs = [false]
+	outputs = [false]
 
 func process():
-	times_executed -= 1
-	if times_executed < 0:
-		return
+	var new_output = !inputs[0]
 	
-	var output = !inputs[0]
-	emit_signal("change_output", 0, output)
-
-func _physics_process(delta):
-	times_executed = 9
+	if new_output != outputs[0]:
+		outputs[0] = new_output
+		
+		update_outputs()

@@ -1,3 +1,0 @@
-{"class":"GraphEdit","connection_list":[{"from":"ToggleButton","from_port":0,"to":"LightBulb","to_port":0}],"filename":"","name":"GraphEdit","parent":"/root/Node2D","scroll_offset":"Vector2( -312, -196 )","zoom":1}
-{"filename":"res://src/modules/IO/ToggleButton.tscn","name":"ToggleButton","offset":"Vector2( 0, 0 )","parent":"/root/Node2D/GraphEdit","title":"Toggle Button"}
-{"filename":"res://src/modules/IO/LightBulb.tscn","name":"LightBulb","offset":"Vector2( 364, 156 )","parent":"/root/Node2D/GraphEdit","title":"Light Bulb"}

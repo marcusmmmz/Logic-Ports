@@ -1,0 +1,9 @@
+{"class":"GraphEdit","connection_list":[{"from":"NOT104","from_port":0,"to":"LightBulb110","to_port":0},{"from":"NOT100102","from_port":0,"to":"LightBulb98112","to_port":0},{"from":"NOT100102","from_port":0,"to":"AndModule101116","to_port":0},{"from":"NOT104","from_port":0,"to":"AndModule106","to_port":1},{"from":"AndModule106","from_port":0,"to":"NOT100102","to_port":0},{"from":"AndModule101116","from_port":0,"to":"NOT104","to_port":0},{"from":"PulseButton","from_port":0,"to":"AndModule101116","to_port":1},{"from":"PulseButton117","from_port":0,"to":"AndModule106","to_port":0}],"filename":"","name":"GraphEdit","parent":"/root/Game","scroll_offset":"Vector2( -914.156, -306.79 )","zoom":1}
+{"filename":"res://src/modules/Logic/NotModule.tscn","name":"NOT100102","offset":"Vector2( 312, 0 )","parent":"/root/Game/GraphEdit","title":"NOT Gate"}
+{"filename":"res://src/modules/Logic/NotModule.tscn","name":"NOT104","offset":"Vector2( 312, 260 )","parent":"/root/Game/GraphEdit","title":"NOT Gate"}
+{"filename":"res://src/modules/Logic/AndModule.tscn","name":"AndModule106","offset":"Vector2( 0, 0 )","parent":"/root/Game/GraphEdit","title":" And Gate"}
+{"filename":"res://src/modules/IO/LightBulb.tscn","name":"LightBulb110","offset":"Vector2( 780, 260 )","parent":"/root/Game/GraphEdit","title":"Light Bulb"}
+{"filename":"res://src/modules/IO/LightBulb.tscn","name":"LightBulb98112","offset":"Vector2( 780, 0 )","parent":"/root/Game/GraphEdit","title":"Light Bulb"}
+{"filename":"res://src/modules/Logic/AndModule.tscn","name":"AndModule101116","offset":"Vector2( 0, 260 )","parent":"/root/Game/GraphEdit","title":" And Gate"}
+{"filename":"res://src/modules/IO/PulseButton.tscn","name":"PulseButton","offset":"Vector2( -390, 260 )","parent":"/root/Game/GraphEdit","title":"Pulse Button"}
+{"filename":"res://src/modules/IO/PulseButton.tscn","name":"PulseButton117","offset":"Vector2( -390, 26 )","parent":"/root/Game/GraphEdit","title":"Pulse Button"}

@@ -14,12 +14,24 @@ func _physics_process(delta):
 		scroll_offset.y += speed * zoom
 
 func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
-	get_node(from).connect("change_output", get_node(to), "_input_changed")
 	connect_node(from,from_slot, to, to_slot)
+	
+	var connection = Module.Connection.new(
+		from,from_slot, to, to_slot
+	)
+	
+	get_node(from).add_connection(connection)
+	get_node(to).add_connection(connection)
 
 func _on_GraphEdit_disconnection_request(from, from_slot, to, to_slot):
 	disconnect_node(from,from_slot, to, to_slot)
-	get_node(from).offset += Vector2(0, 0)
+	
+	var connection = Module.Connection.new(
+		from,from_slot, to, to_slot
+	)
+	
+	get_node(from).delete_connection(connection)
+	get_node(to).delete_connection(connection)
 
 func save():
 	var save_dict = {
@@ -29,7 +41,6 @@ func save():
 		"name":name,
 		"scroll_offset":var2str(scroll_offset),
 		"zoom":zoom,
-		"connection_list":get_connection_list(),
-		"signals":get_signal_list()
+		"connection_list":get_connection_list()
 	}
 	return save_dict
