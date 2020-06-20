@@ -77,9 +77,6 @@ func load_game(path):
 				continue
 			elif i == "offset" or i == "scroll_offset":
 				node_data[i] = str2var(node_data[i])
-#			elif i == "connections":
-#				node_data[i] = str2var(node_data[i])
-#				print(node_data[i])
 			elif i == "connection_list":
 				for cnn in node_data[i]:
 					$GraphEdit.call_deferred("_on_GraphEdit_connection_request", cnn.from, cnn.from_port, cnn.to, cnn.to_port)

@@ -45,10 +45,6 @@ func find_connection(connection : Connection):
 			return i
 		i+=1
 
-func has_connection(connection : Connection):
-	if find_connection(connection) != -1:
-		return true
-
 func delete_connection(connection : Connection):
 	var cnn = find_connection(connection)
 	if cnn != -1:
@@ -105,7 +101,8 @@ func update_outputs():
 
 func _on_Module_close_request():
 	
-	for cnn in connections:
+	while connections.size() > 0:
+		var cnn = connections[0]
 		get_parent()._on_GraphEdit_disconnection_request(
 			cnn.from, cnn.from_port, cnn.to, cnn.to_port
 		)
@@ -119,6 +116,5 @@ func save():
 		"name":name,
 		"title":title,
 		"offset":var2str(offset),
-#		"connections":var2str(connections),
 	}
 	return save_dict
