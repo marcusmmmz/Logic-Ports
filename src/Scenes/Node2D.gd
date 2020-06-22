@@ -1,6 +1,18 @@
 extends Control
 
-func save_game(path):
+func _on_Save_pressed():
+	$FileDialog.mode = FileDialog.MODE_SAVE_FILE
+	$FileDialog.requester = $FileDialog.requesters.PROJECT
+	if !$FileDialog.visible:
+		$FileDialog.popup_centered()
+
+func _on_Load_pressed():
+	$FileDialog.mode = FileDialog.MODE_OPEN_FILE
+	$FileDialog.requester = $FileDialog.requesters.PROJECT
+	if !$FileDialog.visible:
+		$FileDialog.popup_centered()
+
+func save_project(path):
 	var save = File.new()
 	save.open(path, File.WRITE)
 	
@@ -10,7 +22,7 @@ func save_game(path):
 		save.store_line(to_json(node_data))
 	save.close()
 
-func load_game(path):
+func load_project(path):
 	var save = File.new()
 	if not save.file_exists(path):
 		return # Error! We don't have a save to load.
@@ -62,3 +74,9 @@ func load_game(path):
 			new_object.set(i, node_data[i])
 	
 	save.close()
+
+func save_module(path):
+	pass
+
+func load_module(path):
+	pass

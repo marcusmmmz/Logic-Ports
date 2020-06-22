@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://src/scripts/AddModuleButton.gd" type="Script" id=1]
+[ext_resource path="res://src/GUI/AddModuleButton.gd" type="Script" id=1]
 [ext_resource path="res://src/Scenes/Node2D.gd" type="Script" id=2]
 [ext_resource path="res://src/Scenes/GraphEdit.gd" type="Script" id=3]
 [ext_resource path="res://src/resources/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/GUI/AddPopup.gd" type="Script" id=5]
-[ext_resource path="res://src/GUI/GameFilePopup.gd" type="Script" id=6]
 [ext_resource path="res://src/GUI/ModulePopup.gd" type="Script" id=7]
+[ext_resource path="res://src/GUI/FileDialog.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -32,10 +32,11 @@ __meta__ = {
 anchor_top = 0.067
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -0.240002
+margin_top = 3.8
 focus_mode = 0
+custom_colors/activity = Color( 0, 0, 0, 1 )
 right_disconnects = true
-scroll_offset = Vector2( -6.10352e-05, -0.240002 )
+scroll_offset = Vector2( 0, -12.04 )
 snap_distance = 26
 script = ExtResource( 3 )
 __meta__ = {
@@ -51,9 +52,9 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-anchor_left = 0.35
-anchor_right = 0.65
-anchor_bottom = 0.044
+anchor_left = 0.34375
+anchor_right = 0.65625
+anchor_bottom = 0.0728
 margin_left = -3.05176e-05
 margin_right = -6.10352e-05
 margin_bottom = 0.319998
@@ -63,6 +64,118 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Save" type="Button" parent="."]
+anchor_left = 0.016
+anchor_top = 0.00666667
+anchor_right = 0.097
+anchor_bottom = 0.0626667
+margin_left = -0.384001
+margin_right = -0.320015
+margin_bottom = -0.32
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="."]
+anchor_left = 0.117
+anchor_top = 0.00666667
+anchor_right = 0.198
+anchor_bottom = 0.0616667
+margin_left = 0.192001
+margin_right = 0.511993
+margin_bottom = 0.279995
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModuleButton" type="Button" parent="."]
+anchor_left = 0.805
+anchor_top = 0.00666667
+anchor_right = 0.886
+anchor_bottom = 0.0616667
+margin_left = -0.320068
+margin_right = -0.00012207
+margin_bottom = 0.279995
+text = "Modules"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModulePopup" type="Popup" parent="."]
+anchor_left = 0.35
+anchor_top = 0.139
+anchor_right = 0.65
+anchor_bottom = 0.85
+margin_left = -3.05176e-05
+margin_top = -0.0800095
+margin_right = -6.10352e-05
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ModulePopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="ModulePopup"]
+anchor_right = 1.0
+anchor_bottom = 0.07
+margin_bottom = 0.16
+text = "Modules"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveModule" type="Button" parent="ModulePopup"]
+anchor_left = 0.161458
+anchor_top = 0.104715
+anchor_right = 0.838698
+anchor_bottom = 0.167716
+margin_right = -0.0479889
+margin_bottom = 0.11916
+text = "Save as module"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LoadModule" type="Button" parent="ModulePopup"]
+anchor_left = 0.161458
+anchor_top = 0.198463
+anchor_right = 0.838698
+anchor_bottom = 0.261463
+margin_right = -0.0479889
+margin_bottom = 0.11916
+text = "Load module"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ModulePopup"]
+anchor_left = 0.165599
+anchor_top = 0.311784
+anchor_right = 0.83375
+anchor_bottom = 0.960983
+margin_left = 0.127998
+margin_top = -0.0320015
+margin_right = -0.128021
+margin_bottom = -0.0320129
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ModulePopup/ScrollContainer"]
+margin_right = 205.0
+margin_bottom = 277.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
 
 [node name="AddButton" type="Button" parent="."]
 anchor_left = 0.906
@@ -198,187 +311,26 @@ size_flags_vertical = 3
 text = "Light Bulb"
 script = ExtResource( 1 )
 
-[node name="Save" type="Button" parent="."]
-anchor_left = 0.016
-anchor_top = 0.00666667
-anchor_right = 0.097
-anchor_bottom = 0.0626667
-margin_left = -0.384001
-margin_right = -0.320015
-margin_bottom = -0.32
-text = "Save"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Load" type="Button" parent="."]
-anchor_left = 0.117
-anchor_top = 0.00666667
-anchor_right = 0.198
-anchor_bottom = 0.0616667
-margin_left = 0.192001
-margin_right = 0.511993
-margin_bottom = 0.279999
-text = "Load"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="GameFilePopup" type="FileDialog" parent="."]
-anchor_left = 0.352
-anchor_top = 0.267
-anchor_right = 0.719
-anchor_bottom = 0.769
-margin_left = -36.448
-margin_top = 7.79999
-margin_right = -36.256
-margin_bottom = 7.92001
-dialog_hide_on_ok = true
-access = 2
-current_dir = "C:/Users/Marcus/OneDrive/Godot/Logic Ports"
-current_path = "C:/Users/Marcus/OneDrive/Godot/Logic Ports/"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GameFilePopup"]
-anchor_top = -0.225574
-anchor_right = 1.0
-anchor_bottom = -0.066574
-margin_left = 7.45058e-09
-margin_top = -0.0300369
-margin_bottom = 0.0600739
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "(Refresh)"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ModuleButton" type="Button" parent="."]
-anchor_left = 0.805
-anchor_top = 0.00666667
-anchor_right = 0.886
-anchor_bottom = 0.0616667
-margin_left = -0.320068
-margin_right = -0.00012207
-margin_bottom = 0.279999
-text = "Modules"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ModulePopup" type="Popup" parent="."]
-anchor_left = 0.35
-anchor_top = 0.139
-anchor_right = 0.65
-anchor_bottom = 0.85
-margin_left = -3.05176e-05
-margin_top = -0.0800095
-margin_right = -6.10352e-05
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="ModulePopup"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="ModulePopup"]
-anchor_right = 1.0
-anchor_bottom = 0.07
-margin_bottom = 0.16
-text = "Modules"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveModule" type="Button" parent="ModulePopup"]
-anchor_left = 0.161458
-anchor_top = 0.104715
-anchor_right = 0.838698
-anchor_bottom = 0.167716
-margin_right = -0.0479889
-margin_bottom = 0.11916
-text = "Save as module"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="LoadModule" type="Button" parent="ModulePopup"]
-anchor_left = 0.161458
-anchor_top = 0.198463
-anchor_right = 0.838698
-anchor_bottom = 0.261463
-margin_right = -0.0479889
-margin_bottom = 0.11916
-text = "Load module"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ModulePopup"]
-anchor_left = 0.165599
-anchor_top = 0.311784
-anchor_right = 0.83375
-anchor_bottom = 0.960983
-margin_left = 0.127998
-margin_top = -0.0320015
-margin_right = -0.128021
-margin_bottom = -0.0320129
-scroll_horizontal_enabled = false
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ModulePopup/ScrollContainer"]
-margin_right = 205.0
-margin_bottom = 277.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 16
-
-[node name="ModuleFilePopup" type="FileDialog" parent="."]
-anchor_left = 0.35
-anchor_top = 0.278
-anchor_right = 0.65
-anchor_bottom = 0.767
-margin_left = -34.4
-margin_top = 1.2
-margin_right = 34.4
-margin_bottom = 9.12003
-dialog_hide_on_ok = true
-access = 2
-current_dir = "C:/Users/Marcus/OneDrive/Godot/Logic Ports"
-current_path = "C:/Users/Marcus/OneDrive/Godot/Logic Ports/"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="ModuleFilePopup"]
-anchor_top = -0.225574
-anchor_right = 1.0
-anchor_bottom = -0.066574
-margin_top = -0.0300369
-margin_bottom = 0.0600739
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "(Refresh)"
-align = 1
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_left = 0.316051
+anchor_top = 0.279667
+anchor_right = 0.683949
+anchor_bottom = 0.780333
+margin_left = 0.363983
+margin_top = 0.199982
+margin_right = -0.364014
+margin_bottom = -0.200012
+mode_overrides_title = false
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 [connection signal="connection_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_connection_request"]
 [connection signal="disconnection_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_disconnection_request"]
-[connection signal="pressed" from="AddButton" to="AddPopup" method="_on_AddButton_pressed"]
-[connection signal="pressed" from="Save" to="GameFilePopup" method="_on_Save_pressed"]
-[connection signal="pressed" from="Load" to="GameFilePopup" method="_on_Load_pressed"]
-[connection signal="confirmed" from="GameFilePopup" to="GameFilePopup" method="_on_GameFilePopup_confirmed"]
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
 [connection signal="pressed" from="ModuleButton" to="ModulePopup" method="_on_ModuleButton_pressed"]
 [connection signal="pressed" from="ModulePopup/SaveModule" to="ModulePopup" method="_on_SaveModule_pressed"]
 [connection signal="pressed" from="ModulePopup/LoadModule" to="ModulePopup" method="_on_LoadModule_pressed"]
-[connection signal="confirmed" from="ModuleFilePopup" to="ModulePopup" method="_on_ModuleFilePopup_confirmed"]
-[connection signal="ready" from="ModuleFilePopup" to="ModulePopup" method="_on_ModuleFilePopup_ready"]
+[connection signal="pressed" from="AddButton" to="AddPopup" method="_on_AddButton_pressed"]
+[connection signal="confirmed" from="FileDialog" to="FileDialog" method="_on_FileDialog_confirmed"]
