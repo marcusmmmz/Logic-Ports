@@ -1,28 +1,18 @@
 extends Control
 
-func _on_AddButton_pressed():
-	$AddPopup.visible = !$AddPopup.visible
-
-func _on_FilePopup_ready():
-	$FilePopup.call_deferred("popup")
-	$FilePopup.call_deferred("hide")
-
 func _on_Save_pressed():
-	$FilePopup.mode = FileDialog.MODE_SAVE_FILE
-	$FilePopup.visible = !$FilePopup.visible
+	$FileDialog.mode = FileDialog.MODE_SAVE_FILE
+	$FileDialog.requester = $FileDialog.requesters.PROJECT
+	if !$FileDialog.visible:
+		$FileDialog.popup_centered()
 
 func _on_Load_pressed():
-	$FilePopup.mode = FileDialog.MODE_OPEN_FILE
-	$FilePopup.visible = !$FilePopup.visible
+	$FileDialog.mode = FileDialog.MODE_OPEN_FILE
+	$FileDialog.requester = $FileDialog.requesters.PROJECT
+	if !$FileDialog.visible:
+		$FileDialog.popup_centered()
 
-func _on_FilePopup_confirmed():
-	if $FilePopup.mode == FileDialog.MODE_SAVE_FILE:
-		save_game($FilePopup.current_path)
-	
-	elif $FilePopup.mode == FileDialog.MODE_OPEN_FILE:
-		load_game($FilePopup.current_path)
-
-func save_game(path):
+func save_project(path):
 	var save = File.new()
 	save.open(path, File.WRITE)
 	
@@ -32,7 +22,7 @@ func save_game(path):
 		save.store_line(to_json(node_data))
 	save.close()
 
-func load_game(path):
+func load_project(path):
 	var save = File.new()
 	if not save.file_exists(path):
 		return # Error! We don't have a save to load.
@@ -84,3 +74,9 @@ func load_game(path):
 			new_object.set(i, node_data[i])
 	
 	save.close()
+
+func save_module(path):
+	pass
+
+func load_module(path):
+	pass
