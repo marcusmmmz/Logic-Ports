@@ -1,27 +1,5 @@
 extends Control
 
-func _on_AddButton_pressed():
-	$AddPopup.visible = !$AddPopup.visible
-
-func _on_FilePopup_ready():
-	$FilePopup.call_deferred("popup")
-	$FilePopup.call_deferred("hide")
-
-func _on_Save_pressed():
-	$FilePopup.mode = FileDialog.MODE_SAVE_FILE
-	$FilePopup.visible = !$FilePopup.visible
-
-func _on_Load_pressed():
-	$FilePopup.mode = FileDialog.MODE_OPEN_FILE
-	$FilePopup.visible = !$FilePopup.visible
-
-func _on_FilePopup_confirmed():
-	if $FilePopup.mode == FileDialog.MODE_SAVE_FILE:
-		save_game($FilePopup.current_path)
-	
-	elif $FilePopup.mode == FileDialog.MODE_OPEN_FILE:
-		load_game($FilePopup.current_path)
-
 func save_game(path):
 	var save = File.new()
 	save.open(path, File.WRITE)

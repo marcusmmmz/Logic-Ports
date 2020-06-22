@@ -7,9 +7,7 @@ func _ready():
 func process():
 	var new_output = false
 	for input in inputs:
-		if input == true:
-			new_output = true
-			break
+		new_output = new_output or input
 	
 	if new_output != outputs[0]:
 		outputs[0] = new_output

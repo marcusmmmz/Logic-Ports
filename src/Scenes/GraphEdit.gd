@@ -2,15 +2,32 @@ extends GraphEdit
 
 var speed = 5
 
+var previous_mouse_pos = Vector2.ZERO
+var is_dragging = false
+
+func _gui_input(event):
+	
+	if event is InputEventMouseMotion:
+		previous_mouse_pos = event.relative
+	
+	elif event is InputEventMouseButton:
+		if event.button_index == 2:
+			is_dragging = event.pressed
+		else:
+			is_dragging = false
+	
+	if is_dragging:
+		scroll_offset -= previous_mouse_pos * zoom
+
 func _physics_process(delta):
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("sim_right"):
 		scroll_offset.x += speed * zoom
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("sim_left"):
 		scroll_offset.x -= speed * zoom
 	
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("sim_up"):
 		scroll_offset.y -= speed * zoom
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("sim_down"):
 		scroll_offset.y += speed * zoom
 
 func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
