@@ -1,9 +1,0 @@
-{"class":"GraphEdit","connection_list":[{"from":"ToggleButton","from_port":0,"to":"AndModule101","to_port":1},{"from":"ToggleButton","from_port":0,"to":"AndModule","to_port":0},{"from":"NOT100","from_port":0,"to":"LightBulb98","to_port":0},{"from":"NOT","from_port":0,"to":"LightBulb","to_port":0},{"from":"AndModule","from_port":0,"to":"NOT100","to_port":0},{"from":"AndModule101","from_port":0,"to":"NOT","to_port":0},{"from":"NOT100","from_port":0,"to":"AndModule101","to_port":0},{"from":"NOT","from_port":0,"to":"AndModule","to_port":1}],"filename":"","name":"GraphEdit","parent":"/root/Game","scroll_offset":"Vector2( -914.156, -237.515 )","zoom":1}
-{"filename":"res://src/modules/Logic/NotModule.tscn","name":"NOT100","offset":"Vector2( 312, 0 )","parent":"/root/Game/GraphEdit","title":"NOT Gate"}
-{"filename":"res://src/modules/Logic/NotModule.tscn","name":"NOT","offset":"Vector2( 312, 260 )","parent":"/root/Game/GraphEdit","title":"NOT Gate"}
-{"filename":"res://src/modules/Logic/AndModule.tscn","name":"AndModule","offset":"Vector2( 0, 0 )","parent":"/root/Game/GraphEdit","title":" And Gate"}
-{"filename":"res://src/modules/IO/ToggleButton.tscn","name":"ToggleButton","offset":"Vector2( -468, 260 )","parent":"/root/Game/GraphEdit","title":"Toggle Button"}
-{"filename":"res://src/modules/IO/LightBulb.tscn","name":"LightBulb","offset":"Vector2( 780, 260 )","parent":"/root/Game/GraphEdit","title":"Light Bulb"}
-{"filename":"res://src/modules/IO/LightBulb.tscn","name":"LightBulb98","offset":"Vector2( 780, 0 )","parent":"/root/Game/GraphEdit","title":"Light Bulb"}
-{"filename":"res://src/modules/IO/ToggleButton.tscn","name":"ToggleButton99","offset":"Vector2( -468, 78 )","parent":"/root/Game/GraphEdit","title":"Toggle Button"}
-{"filename":"res://src/modules/Logic/AndModule.tscn","name":"AndModule101","offset":"Vector2( 0, 260 )","parent":"/root/Game/GraphEdit","title":" And Gate"}

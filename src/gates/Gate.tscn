@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/gates/Gate.gd" type="Script" id=1]
+
+[node name="Gate" type="GraphNode" groups=[
+"save",
+]]
+margin_right = 256.0
+margin_bottom = 128.0
+title = "Gate"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 0, 32 )
+[connection signal="close_request" from="." to="." method="_on_Gate_close_request"]

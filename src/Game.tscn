@@ -1,0 +1,210 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Game.gd" type="Script" id=2]
+[ext_resource path="res://src/WorkBench.gd" type="Script" id=4]
+[ext_resource path="res://src/ui/Menu.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.145098, 0.145098, 0.156863, 1 )
+
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BG" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="."]
+anchor_left = 0.03075
+anchor_top = 0.0133333
+anchor_right = 0.21875
+anchor_bottom = 0.0863333
+margin_left = 0.511997
+margin_bottom = -3.8
+size_flags_vertical = 3
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProjectName" type="LineEdit" parent="."]
+anchor_left = 0.25
+anchor_top = 0.0133333
+anchor_right = 0.750359
+anchor_bottom = 0.08
+margin_right = -0.368042
+margin_bottom = -3.8147e-06
+custom_styles/normal = SubResource( 1 )
+text = "Project name"
+align = 1
+max_length = 64
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MenuButton" type="Button" parent="."]
+anchor_left = 0.78125
+anchor_top = 0.013
+anchor_right = 0.96875
+anchor_bottom = 0.0803334
+margin_left = -3.05176e-05
+margin_top = 0.199982
+margin_bottom = -0.200012
+size_flags_horizontal = 3
+toggle_mode = true
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="WorkBench" type="GraphEdit" parent="." groups=[
+"save",
+]]
+anchor_top = 0.0936667
+anchor_right = 1.0
+anchor_bottom = 0.999667
+margin_top = -0.200001
+margin_bottom = 0.200012
+right_disconnects = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Menu" type="Panel" parent="."]
+visible = false
+anchor_top = 0.0933333
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="UserPath" type="LineEdit" parent="Menu"]
+anchor_left = 0.25
+anchor_top = 0.0294118
+anchor_right = 0.749937
+anchor_bottom = 0.0885
+margin_right = 0.0640259
+margin_bottom = -0.143997
+align = 1
+editable = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBox" type="HBoxContainer" parent="Menu"]
+anchor_left = 0.03125
+anchor_top = 0.235294
+anchor_right = 0.96875
+anchor_bottom = 0.939338
+custom_constants/separation = 64
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Projects" type="ScrollContainer" parent="Menu/HBox"]
+margin_right = 277.0
+margin_bottom = 383.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 3 )
+
+[node name="VBox" type="VBoxContainer" parent="Menu/HBox/Projects"]
+margin_right = 277.0
+margin_bottom = 383.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Menu/HBox/Projects/VBox"]
+margin_right = 277.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 14 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Projects"
+align = 1
+
+[node name="Modules" type="ScrollContainer" parent="Menu/HBox"]
+margin_left = 341.0
+margin_right = 618.0
+margin_bottom = 383.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 3 )
+
+[node name="VBox" type="VBoxContainer" parent="Menu/HBox/Modules"]
+margin_right = 277.0
+margin_bottom = 383.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Menu/HBox/Modules/VBox"]
+margin_right = 277.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 14 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Modules (Coming soon)"
+align = 1
+
+[node name="Gates" type="ScrollContainer" parent="Menu/HBox"]
+margin_left = 682.0
+margin_right = 960.0
+margin_bottom = 383.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 3 )
+
+[node name="VBox" type="VBoxContainer" parent="Menu/HBox/Gates"]
+margin_right = 278.0
+margin_bottom = 383.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Menu/HBox/Gates/VBox"]
+margin_right = 278.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 14 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Gates"
+align = 1
+
+[node name="Label" type="Label" parent="Menu"]
+anchor_left = 0.375
+anchor_top = 0.132353
+anchor_right = 0.624937
+anchor_bottom = 0.191441
+margin_right = 0.0639992
+margin_bottom = -0.144
+text = "CTRL/Shift: doesn't hide the menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="SaveButton" to="." method="save_project"]
+[connection signal="toggled" from="MenuButton" to="Menu" method="set_visible"]
+[connection signal="connection_request" from="WorkBench" to="WorkBench" method="_on_WorkBench_connection_request"]
+[connection signal="delete_nodes_request" from="WorkBench" to="WorkBench" method="_on_WorkBench_delete_nodes_request"]
+[connection signal="disconnection_request" from="WorkBench" to="WorkBench" method="_on_WorkBench_disconnection_request"]

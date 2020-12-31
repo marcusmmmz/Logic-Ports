@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/gates/Gate.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Gate
+
+func _on_Button_toggled(button_pressed):
+	outputs[0] = button_pressed
+	update_outputs()
+"
+
+[node name="ToggleButton" instance=ExtResource( 1 )]
+margin_bottom = 71.0
+title = "Toggle Button"
+slot/0/right_enabled = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = SubResource( 1 )
+outputs_size = 1
+
+[node name="Button" type="Button" parent="." index="0"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 0, 98 )
+toggle_mode = true
+text = "Toggle"
+
+[node name="Panel" parent="." index="1"]
+visible = false
+margin_top = 123.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 0, 0 )
+[connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]

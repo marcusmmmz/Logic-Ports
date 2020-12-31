@@ -10,62 +10,30 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "GraphNode",
-"class": "Module",
+"class": "Gate",
 "language": "GDScript",
-"path": "res://src/modules/Module.gd"
+"path": "res://src/gates/Gate.gd"
+}, {
+"base": "Resource",
+"class": "ProjectSave",
+"language": "GDScript",
+"path": "res://src/ProjectSave.gd"
 } ]
 _global_script_class_icons={
-"Module": ""
+"Gate": "",
+"ProjectSave": ""
 }
 
 [application]
 
-config/name="Logic Ports"
-run/main_scene="res://src/Scenes/Node2D.tscn"
+config/name="Logic ports"
+run/main_scene="res://src/Game.tscn"
 config/icon="res://icon.png"
+config/version="0.0.5"
 
-[input]
+[autoload]
 
-ui_left={
-"deadzone": 0.5,
-"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
- ]
-}
-ui_right={
-"deadzone": 0.5,
-"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
- ]
-}
-ui_up={
-"deadzone": 0.5,
-"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
- ]
-}
-ui_down={
-"deadzone": 0.5,
-"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
- ]
-}
-sim_left={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
- ]
-}
-sim_right={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
- ]
-}
-sim_up={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
- ]
-}
-sim_down={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
- ]
-}
+WorkbenchManager="*res://src/scripts/WorkbenchManager.gd"
 
 [rendering]
 
