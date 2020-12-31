@@ -29,7 +29,7 @@ _global_script_class_icons={
 config/name="Logic ports"
 run/main_scene="res://src/Game.tscn"
 config/icon="res://icon.png"
-config/version="0.0.5"
+config/version="0.0.6"
 
 [autoload]
 

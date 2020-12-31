@@ -49,6 +49,9 @@ func update_gate_list():
 			"AND":"res://src/gates/logic/AND.tscn",
 			"OR":"res://src/gates/logic/OR.tscn",
 			"NOT":"res://src/gates/logic/NOT.tscn",
+			"NAND":"res://src/gates/logic/NAND.tscn",
+			"NOR":"res://src/gates/logic/NOR.tscn",
+			"XOR":"res://src/gates/logic/XOR.tscn"
 		},
 		"IO": {
 			"Press Button":"res://src/gates/io/Press.tscn",

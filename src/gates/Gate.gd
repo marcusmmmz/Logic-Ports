@@ -29,9 +29,10 @@ func process():
 	pass #virtual
 
 func update_io():
+	var old_outputs := outputs.duplicate()
 	update_inputs()
-	var old_outputs := outputs
 	process()
+	
 	if old_outputs != outputs:
 		update_outputs()
 

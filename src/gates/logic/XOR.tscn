@@ -6,11 +6,11 @@
 script/source = "extends Gate
 
 func process():
-	outputs[0] = not (inputs[0] and inputs[1])
+	outputs[0] = !(inputs[0] == inputs[1])
 "
 
-[node name="NAND" instance=ExtResource( 1 )]
-title = "NAND"
+[node name="XOR" instance=ExtResource( 1 )]
+title = "XOR"
 slot/0/left_enabled = true
 slot/0/right_enabled = true
 slot/1/left_enabled = true
