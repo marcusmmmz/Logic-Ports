@@ -1,9 +1,17 @@
 extends Panel
 
 func _ready():
+	update_lists()
+	$UserPath.text = OS.get_user_data_dir()
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_FOCUS_IN:
+		update_lists()
+
+func update_lists():
 	update_project_list()
 	update_gate_list()
-	$UserPath.text = OS.get_user_data_dir()
+	update_module_list()
 
 func dir_contents(path):
 	var output := []
@@ -30,8 +38,7 @@ func update_project_list():
 	
 	var projects := {}
 	for file in dir_contents("user://projects/"):
-		var path = file
-		projects[file] = path
+		projects[file] = file
 	
 	for project in projects.keys():
 		var project_path = projects[project]
@@ -44,21 +51,7 @@ func update_project_list():
 		)
 
 func update_gate_list():
-	var gate_types = {
-		"Logic": {
-			"AND":"res://src/gates/logic/AND.tscn",
-			"OR":"res://src/gates/logic/OR.tscn",
-			"NOT":"res://src/gates/logic/NOT.tscn",
-			"NAND":"res://src/gates/logic/NAND.tscn",
-			"NOR":"res://src/gates/logic/NOR.tscn",
-			"XOR":"res://src/gates/logic/XOR.tscn"
-		},
-		"IO": {
-			"Press Button":"res://src/gates/io/Press.tscn",
-			"Toggle Button":"res://src/gates/io/Toggle.tscn",
-			"LED":"res://src/gates/io/LED.tscn"
-		},
-	}
+	var gate_types = get_parent().gate_types
 	
 	for gate_type in gate_types.keys():
 		
@@ -71,15 +64,33 @@ func update_gate_list():
 		
 		$HBox/Gates/VBox.add_child(label_instance)
 		
-		for gate in gate_types[gate_type].keys():
-			var gate_path = gate_types[gate_type][gate]
+		for gate in gate_types[gate_type]:
 			
 			spawn_button(
 				$HBox/Gates/VBox,
 				load("res://src/ui/GatesButton.tscn"),
 				gate,
-				gate_path
+				"res://src/gates/"+gate_type+"/"+gate+".tscn"
 			)
+
+func update_module_list():
+	for child in $HBox/Modules/VBox.get_children():
+		if not child is Label:
+			child.queue_free()
+	
+	var modules := {}
+	for file in dir_contents("user://modules/"):
+		modules[file] = file
+	
+	for module in modules.keys():
+		var module_path = modules[module]
+		
+		spawn_button(
+			$HBox/Modules/VBox, 
+			load("res://src/ui/ModuleButton.tscn"),
+			module,
+			get_parent().module_save_path + module_path
+		)
 
 func on_button_pressed():
 	if !(Input.is_key_pressed(KEY_CONTROL) or Input.is_key_pressed(KEY_SHIFT)):

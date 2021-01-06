@@ -10,10 +10,13 @@ var outputs : Array
 func _ready():
 	connect("output_updated", get_parent(), "_on_Gate_output_updated")
 	setup_io()
-	update_io()
 
 func setup_io():
 	for i in range( max(inputs_size, outputs_size) ):
+		var panel = Panel.new()
+		panel.rect_min_size.y = 32
+		add_child(panel)
+		
 		if i < inputs_size:
 			inputs.append(false)
 		
@@ -24,6 +27,8 @@ func setup_io():
 			i < inputs_size, 0, Color.black,
 			i < outputs_size, 0, Color.black
 		)
+	
+	update_io()
 
 func process():
 	pass #virtual

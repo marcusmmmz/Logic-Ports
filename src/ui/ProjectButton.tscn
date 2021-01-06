@@ -6,7 +6,9 @@ script/source = "extends Button
 var load_path : String
 
 func _on_ProjectButton_pressed():
-	get_tree().get_current_scene().load_project( load_path )
+	get_tree().get_current_scene().load_project(
+		load_path
+	)
 "
 
 [node name="ProjectButton" type="Button"]

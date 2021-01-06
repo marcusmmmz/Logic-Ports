@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/gates/Gate.gd"
 }, {
+"base": "Gate",
+"class": "Module",
+"language": "GDScript",
+"path": "res://src/gates/Module.gd"
+}, {
+"base": "Resource",
+"class": "ModuleSave",
+"language": "GDScript",
+"path": "res://src/ModuleSave.gd"
+}, {
 "base": "Resource",
 "class": "ProjectSave",
 "language": "GDScript",
@@ -21,6 +31,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Gate": "",
+"Module": "",
+"ModuleSave": "",
 "ProjectSave": ""
 }
 

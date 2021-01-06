@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+var load_path
+
+func _on_ModuleButton_pressed():
+	var module_instance = load(\"res://src/gates/Module.tscn\").instance()
+	module_instance.model = load( load_path )
+	
+	WorkbenchManager.add_gate(
+		module_instance
+	)
+"
+
+[node name="ModuleButton" type="Button"]
+anchor_right = 0.078125
+anchor_bottom = 0.053
+margin_bottom = 0.200001
+rect_min_size = Vector2( 32, 32 )
+text = "Module"
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="." to="." method="_on_ModuleButton_pressed"]

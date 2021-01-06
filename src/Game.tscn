@@ -28,23 +28,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveButton" type="Button" parent="."]
-anchor_left = 0.03075
+[node name="SaveProject" type="Button" parent="."]
+anchor_left = 0.015125
 anchor_top = 0.0133333
-anchor_right = 0.21875
-anchor_bottom = 0.0863333
+anchor_right = 0.132563
+anchor_bottom = 0.08
 margin_left = 0.511997
-margin_bottom = -3.8
+margin_right = 0.255997
+margin_bottom = -3.8147e-06
 size_flags_vertical = 3
-text = "Save"
+text = "Save as project"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SaveModule" type="Button" parent="."]
+anchor_left = 0.148438
+anchor_top = 0.0133333
+anchor_right = 0.265906
+anchor_bottom = 0.0796667
+margin_right = -0.287994
+margin_bottom = 0.200001
+text = "Save as module"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="ProjectName" type="LineEdit" parent="."]
-anchor_left = 0.25
+anchor_left = 0.28125
 anchor_top = 0.0133333
-anchor_right = 0.750359
+anchor_right = 0.719109
 anchor_bottom = 0.08
 margin_right = -0.368042
 margin_bottom = -3.8147e-06
@@ -57,13 +70,14 @@ __meta__ = {
 }
 
 [node name="MenuButton" type="Button" parent="."]
-anchor_left = 0.78125
+anchor_left = 0.734375
 anchor_top = 0.013
-anchor_right = 0.96875
-anchor_bottom = 0.0803334
-margin_left = -3.05176e-05
+anchor_right = 0.984812
+anchor_bottom = 0.08
+margin_left = -6.10352e-05
 margin_top = 0.199982
-margin_bottom = -0.200012
+margin_right = -0.447937
+margin_bottom = -7.62939e-06
 size_flags_horizontal = 3
 toggle_mode = true
 text = "Menu"
@@ -86,7 +100,6 @@ __meta__ = {
 }
 
 [node name="Menu" type="Panel" parent="."]
-visible = false
 anchor_top = 0.0933333
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -121,14 +134,14 @@ __meta__ = {
 
 [node name="Projects" type="ScrollContainer" parent="Menu/HBox"]
 margin_right = 277.0
-margin_bottom = 383.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 3 )
 
 [node name="VBox" type="VBoxContainer" parent="Menu/HBox/Projects"]
 margin_right = 277.0
-margin_bottom = 383.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 8
@@ -145,14 +158,14 @@ align = 1
 [node name="Modules" type="ScrollContainer" parent="Menu/HBox"]
 margin_left = 341.0
 margin_right = 618.0
-margin_bottom = 383.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 3 )
 
 [node name="VBox" type="VBoxContainer" parent="Menu/HBox/Modules"]
 margin_right = 277.0
-margin_bottom = 383.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 8
@@ -163,20 +176,20 @@ margin_bottom = 14.0
 rect_min_size = Vector2( 0, 14 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Modules (Coming soon)"
+text = "Modules"
 align = 1
 
 [node name="Gates" type="ScrollContainer" parent="Menu/HBox"]
 margin_left = 682.0
 margin_right = 960.0
-margin_bottom = 383.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 3 )
 
 [node name="VBox" type="VBoxContainer" parent="Menu/HBox/Gates"]
 margin_right = 278.0
-margin_bottom = 383.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 8
@@ -203,7 +216,8 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
-[connection signal="pressed" from="SaveButton" to="." method="save_project"]
+[connection signal="pressed" from="SaveProject" to="." method="save_project"]
+[connection signal="pressed" from="SaveModule" to="." method="save_module"]
 [connection signal="toggled" from="MenuButton" to="Menu" method="set_visible"]
 [connection signal="connection_request" from="WorkBench" to="WorkBench" method="_on_WorkBench_connection_request"]
 [connection signal="delete_nodes_request" from="WorkBench" to="WorkBench" method="_on_WorkBench_delete_nodes_request"]

@@ -17,7 +17,7 @@ anchor_bottom = 0.053
 margin_right = 0.511997
 margin_bottom = 0.199999
 rect_min_size = Vector2( 0, 32 )
-text = "Text"
+text = "Gate"
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true

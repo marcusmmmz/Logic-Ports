@@ -5,6 +5,10 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Gate
 
+func _ready():
+	#make last panel invisible, temporary solution
+	get_child( get_child_count()-1 ).rect_min_size.y = 0
+
 func process():
 	if inputs[0]:
 		$ColorRect.color = Color.white
@@ -14,12 +18,12 @@ func process():
 
 [node name="LED" instance=ExtResource( 1 )]
 title = "LED"
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
 script = SubResource( 1 )
 inputs_size = 1
 
@@ -30,8 +34,3 @@ margin_right = 240.0
 margin_bottom = 88.0
 rect_min_size = Vector2( 0, 64 )
 color = Color( 0, 0, 0, 1 )
-
-[node name="Panel" parent="." index="1"]
-visible = false
-margin_top = 89.0
-margin_bottom = 121.0
